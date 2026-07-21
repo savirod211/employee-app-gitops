@@ -1,4 +1,4 @@
-# Docker Hub username already filled in (savirod211).
+# Docker Hub username already filled in ().
 # Still worth double-checking before installing:
 #   1. postgres.externalIp - confirm this matches your postgres-db VM's actual IP
 #   2. backend.env.datasourcePassword - must match whatever you set in provision-postgres.sh
