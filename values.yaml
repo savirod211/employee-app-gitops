@@ -18,7 +18,7 @@ backend:
   image:
     repository: savirod211/backend-employee
     tag: latest
-    pullPolicy: IfNotPresent
+    pullPolicy: Always
   replicaCount: 1
   service:
     port: 8080
