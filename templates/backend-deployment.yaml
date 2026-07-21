@@ -32,13 +32,11 @@ spec:
                 secretKeyRef:
                   name: backend-employee-db-secret
                   key: password
+            - name: SPRING_DATA_MONGODB_URI
+              value: {{ .Values.backend.env.mongodbUri | quote }}
           readinessProbe:
             httpGet:
               path: /actuator/health
               port: 8080
             initialDelaySeconds: 15
           livenessProbe:
-            httpGet:
-              path: /actuator/health
-              port: 8080
-            initialDelaySeconds: 20
