@@ -1,0 +1,32 @@
+# Docker Hub username already filled in (savirod211).
+# Still worth double-checking before installing:
+#   1. postgres.externalIp - confirm this matches your postgres-db VM's actual IP
+#   2. backend.env.datasourcePassword - must match whatever you set in provision-postgres.sh
+
+frontend:
+  image:
+    repository: savirod211/frontend-employee
+    tag: latest
+    pullPolicy: IfNotPresent
+  replicaCount: 1
+  service:
+    port: 3000
+  env:
+    backendUrl: http://backend-employee:8080
+
+backend:
+  image:
+    repository: savirod211/backend-employee
+    tag: latest
+    pullPolicy: IfNotPresent
+  replicaCount: 1
+  service:
+    port: 8080
+  env:
+    datasourceUrl: jdbc:postgresql://postgres:5432/employeedb
+    datasourceUsername: employee_app
+    datasourcePassword: changeme
+
+postgres:
+  externalIp: 192.168.56.20   # the postgres-db VM
+  port: 5432
