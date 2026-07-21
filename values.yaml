@@ -39,5 +39,5 @@ postgres:
 # MongoDB - stays an external VM on purpose (blast-radius separation).
 # Not yet a container; this Service + Endpoints pair points at that VM.
 mongodb:
-  externalIp: 192.168.157.190   # <-- your mongodb-db VM's real IP
+  externalIp: 192.168.10.19   # <-- your mongodb-db VM's real IP
   port: 27017
