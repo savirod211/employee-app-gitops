@@ -31,3 +31,4 @@ postgres:
   externalIp: 192.168.56.20   # the postgres-db VM
   port: 5432
 #
+#
