@@ -1,9 +1,6 @@
 apiVersion: v2
 name: employee-app
-description: Frontend + backend for the employee app, backed by external Postgres
+description: Frontend + backend, PostgreSQL as an in-cluster container, MongoDB on an external VM
 type: application
-version: 0.1.0
+version: 0.2.0
 appVersion: "1.0.0"
-#
-#
-#

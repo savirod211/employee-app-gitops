@@ -1,7 +1,7 @@
-# Docker Hub username already filled in ().
+# Docker Hub username already filled in (savirod211).
 # Still worth double-checking before installing:
-#   1. postgres.externalIp - confirm this matches your postgres-db VM's actual IP
-#   2. backend.env.datasourcePassword - must match whatever you set in provision-postgres.sh
+#   1. mongodb.externalIp - your mongodb-db VM's actual IP
+#   2. postgres.password / mongodb credentials - match your actual setup
 
 frontend:
   image:
@@ -24,11 +24,20 @@ backend:
     port: 8080
   env:
     datasourceUrl: jdbc:postgresql://postgres:5432/employeedb
-    datasourceUsername: employee_app
-    datasourcePassword: changeme
+    mongodbUri: mongodb://app_reader:changeme@mongodb:27017/activitydb?authSource=activitydb
 
+# PostgreSQL - now an in-cluster container (StatefulSet + PVC), backed by
+# local-path-provisioner. Moved here from an external VM.
 postgres:
-  externalIp: 192.168.56.20   # the postgres-db VM
+  database: employeedb
+  username: employee_app
+  password: changeme
   port: 5432
-#
-#
+  storageClassName: local-path
+  storageSize: 1Gi
+
+# MongoDB - stays an external VM on purpose (blast-radius separation).
+# Not yet a container; this Service + Endpoints pair points at that VM.
+mongodb:
+  externalIp: 203.0.113.20   # <-- your mongodb-db VM's real IP
+  port: 27017
