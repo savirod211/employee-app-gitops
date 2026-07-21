@@ -1,0 +1,21 @@
+# MongoDB stays an external VM on purpose. Same pattern as Postgres used to
+# be: a selector-less Service + hand-written Endpoints pointing at the VM's
+# IP, so pods can still just connect to "mongodb:27017" via cluster DNS.
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+spec:
+  ports:
+    - port: {{ .Values.mongodb.port }}
+      targetPort: {{ .Values.mongodb.port }}
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: mongodb
+subsets:
+  - addresses:
+      - ip: {{ .Values.mongodb.externalIp }}
+    ports:
+      - port: {{ .Values.mongodb.port }}
