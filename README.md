@@ -1,3 +1,4 @@
+### YOU MOTHER FUCKING GOT THIS!!! ###
 # employee-app Helm chart
 
 Packages `frontend-employee` + `backend-employee` as Kubernetes Deployments,
