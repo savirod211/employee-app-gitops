@@ -24,7 +24,8 @@ backend:
     port: 8080
   env:
     datasourceUrl: jdbc:postgresql://postgres:5432/employeedb
-    mongodbUri: mongodb://app_reader:changeme@mongodb:27017/activitydb?authSource=activitydb
+#    mongodbUri: mongodb://app_reader:changeme@mongodb:27017/activitydb?authSource=activitydb
+    mongodbUri: mongodb://app_reader:changeme@192.168.10.19:27017/activitydb?authSource=activitydb
 
 # PostgreSQL - now an in-cluster container (StatefulSet + PVC), backed by
 # local-path-provisioner. Moved here from an external VM.
