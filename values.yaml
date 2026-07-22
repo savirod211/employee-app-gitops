@@ -2,7 +2,7 @@
 # Still worth double-checking before installing:
 #   1. mongodb.externalIp - your mongodb-db VM's actual IP
 #   2. postgres.password / mongodb credentials - match your actual setup
-
+#
 frontend:
   image:
     repository: savirod211/frontend-employee
