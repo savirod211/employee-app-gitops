@@ -29,7 +29,9 @@ backend:
     # mongodbUri: mongodb://app_reader:changeme@192.168.10.19:27017/activitydb?authSource=activitydb
     # mongodbUri: mongodb://admin:changeme@192.168.10.19:27017/activitydb?authSource=activitydb
     # mongodbUri: "mongodb://app_reader:changeme@mongodb:27017/activitydb?authSource=activitydb"
-    mongodbUri: "mongodb://app_reader:changeme@mongodb:27017/activitydb?authSource=activitydb&directConnection=true"
+    # mongodbUri: "mongodb://app_reader:changeme@mongodb:27017/activitydb?authSource=activitydb&directConnection=true"
+    #- mongodbUri: "mongodb://app_reader:changeme@mongodb:27017/activitydb?authSource=activitydb&directConnection=true"
+    mongodbUri: "mongodb://app_reader:changeme@mongodb:27017/activitydb?authSource=activitydb&directConnection=true&serverSelectionTimeoutMS=3000&connectTimeoutMS=3000"
 
 # PostgreSQL - now an in-cluster container (StatefulSet + PVC), backed by
 # local-path-provisioner. Moved here from an external VM.
